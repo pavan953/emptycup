@@ -10,7 +10,6 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
         
     def do_GET(self):
-        if self.path == "/api/studios":
             studios = [
                 {
                     "name": "Epic Designs",
@@ -42,10 +41,6 @@ class handler(BaseHTTPRequestHandler):
             self.send_header('Access-Control-Allow-Headers', 'Content-Type')
             self.end_headers()
             self.wfile.write(json.dumps(studios).encode('utf-8'))
-        else:
-            self.send_response(404)
-            self.end_headers()
-            self.wfile.write(b"Not found")
 
 if __name__ == "__main__":
     server = HTTPServer(('localhost', 5000), handler)
