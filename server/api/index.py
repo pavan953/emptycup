@@ -2,6 +2,13 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
 class handler(BaseHTTPRequestHandler):
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.end_headers()
+        
     def do_GET(self):
         if self.path == "/api/studios":
             studios = [
@@ -26,21 +33,13 @@ class handler(BaseHTTPRequestHandler):
                     "phone1": "+91 - 984532853",
                     "phone2": "+91 - 984532854",
                     "shortlistIcon": 2
-                },
-                {
-                    "name": "House of designs",
-                    "ratingImage": 1,
-                    "description": "New studio with fresh concepts from Delhi.",
-                    "projects": 18,
-                    "years": 2,
-                    "price": "$",
-                    "phone1": "+91 - 984532853",
-                    "phone2": "+91 - 984532854",
-                    "shortlistIcon": 1
                 }
             ]
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')  # Allow requests from any origin
+            self.send_header('Access-Control-Allow-Methods', 'GET')
+            self.send_header('Access-Control-Allow-Headers', 'Content-Type')
             self.end_headers()
             self.wfile.write(json.dumps(studios).encode('utf-8'))
         else:
