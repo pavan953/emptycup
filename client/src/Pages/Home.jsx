@@ -16,7 +16,7 @@ const Home = () => {
   const [studios, setStudios] = useState([]);
 
  useEffect(() => {
-  fetch('http://127.0.0.1:5001/api/studios')
+  fetch('emptycup-kyvd.vercel.app')
     .then(res => res.json())
     .then(data => setStudios(data));
 }, []);
