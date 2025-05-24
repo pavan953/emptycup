@@ -5,14 +5,14 @@ const ListingsPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/studios')
+    fetch('http://127.0.0.1:5000/api/listings')
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch listings');
         }
         return response.json();
       })
-      .then(data => setListings(data)) // assuming `listings.json` wraps it inside a "listings" key
+      .then(data => setListings(data.listings)) // assuming `listings.json` wraps it inside a "listings" key
       .catch(error => {
         console.error('Error fetching listings:', error);
         setError(error.message);
