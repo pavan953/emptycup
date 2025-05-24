@@ -53,7 +53,7 @@ EmptyCup is a platform where design studios can showcase their portfolio and use
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/EmptyCup.git
+git clone https://github.com/pavan953/emptycup.git
 cd EmptyCup
 
 # Install backend dependencies
@@ -69,30 +69,13 @@ cd ..
 # From the project root
 cd server
 
-# Set up environment variables (if needed)
-cp .env.example .env
-# Edit .env with your configuration
-
 # Run the development server
-python run.py
+python index.py
 # From the project root
 cd client
 
 # Start the development server
 npm run dev
-# SSH into your server
-ssh user@your-server-ip
-
-# Clone the repository
-git clone https://github.com/yourusername/EmptyCup.git
-cd EmptyCup/server
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Set up environment variables
-cp .env.example .env
-nano .env  # Edit with production values
 
 # Set up a production WSGI server
 pip install gunicorn
