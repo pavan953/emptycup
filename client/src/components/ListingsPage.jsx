@@ -5,7 +5,7 @@ const ListingsPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/listings')
+    fetch('emptycup-kyvd.vercel.app')
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch listings');
